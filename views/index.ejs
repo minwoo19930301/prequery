@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+      
+  </head>
+  <body>
+    <%= title %> 유저입니다.
+    <form id="inputForm" action="/users" method="post">
+      <tr> 
+        <td><input id="srchInput" placeholder="파운데이션 21호랑 23호 중에 밝은 것은?" style="width: 250px;" name="input" type="text"></td> 
+        <input id='btnSubmit' type="button" value="검색"> <textarea id="speed" name="typeSpeed" style="width: 25px;">0</textarea>
+      </tr>   
+    </form>
+
+  </body>
+  <head>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+    <script>
+      $('#btnSubmit').on('click', function(){
+        const input = document.getElementById('srchInput').value;
+        if(!(input.value=="21호"|| input.value!="23호" )){
+          return;
+        }
+        $('#inputForm').submit();
+        $('#typeSpeed').submit();
+      })
+
+      let iLastTime = 0;
+      let iTime = 0;
+      let iTotal = 0;
+      let iKeys = 0;
+      $('#srchInput').keyup(function(){
+        iTime = new Date().getTime();
+        if (iLastTime != 0) {
+          iKeys++;
+          iTotal += iTime - iLastTime;
+          $('#speed').html(Math.round(iKeys / iTotal * 6000, 2));
+        }
+        iLastTime = iTime;
+      })
+
+    </script>
+
+</html>

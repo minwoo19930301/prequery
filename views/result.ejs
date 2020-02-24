@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    
+  </head>
+  <body>
+      <%= title %> 검색결과 입니다.
+      <form id="form" method="get" action="../">
+        <input id="btn" type="button" value="홈으로 돌아가기">
+      </form>
+     
+  </body>
+  <script>
+    document.getElementById('btn').onclick = function() {
+      document.getElementById('form').submit();
+    };
+  </script>
+</html>
